@@ -8,14 +8,18 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
@@ -45,10 +49,11 @@ class MainActivity : ComponentActivity() {
 fun gameOver(
     modifier: Modifier = Modifier
 ) {
-    Row(
-        modifier = modifier.
-        background(Color.Black).fillMaxSize().
-        padding(10.dp,30.dp),
+   Column (
+        modifier = modifier
+            .background(Color.Black)
+            .fillMaxSize()
+            .padding(10.dp, 30.dp),
 
 
     ){
@@ -82,10 +87,115 @@ fun gameOver(
                     batata = Modifier
                         .size(30.dp)
                 )
-
             }
         }
+
+        Row (
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 80.dp)
+                ,horizontalArrangement = Arrangement.Center
+        ) {
+            inimigos(
+                modifier = Modifier
+                    .size(60.dp)
+            )
+            inimigos(
+                modifier = Modifier
+                    .size(60.dp)
+            )
+            inimigos(
+                modifier = Modifier
+                    .size(60.dp)
+            )
+            inimigos(
+                modifier = Modifier
+                    .size(60.dp)
+            )
+            inimigos(
+                modifier = Modifier
+                    .size(60.dp)
+            )
+        }
+
+        Row(modifier = Modifier
+            .fillMaxWidth()
+            .padding(top = 500.dp)
+            ,horizontalArrangement = Arrangement.Center
+        ){
+            jogador(
+                modifier = Modifier
+                    .size(60.dp)
+            )
+        }
+
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(40.dp)
+                .background(Color.DarkGray),
+            contentAlignment = Alignment.Center
+        ) {
+            Text(
+                text = "PRESS START",
+                color = Color.White,
+                fontSize = 30.sp
+
+            )
+        }
     }
+
+    /*Box(
+        modifier = modifier
+            .background(Color.Black)
+            .fillMaxSize()
+            .padding(10.dp, 30.dp),
+        contentAlignment = Alignment.Center
+    ) {
+        Row (
+            modifier = Modifier
+                .fillMaxWidth(),
+            horizontalArrangement = Arrangement.Center,
+            verticalAlignment = Alignment.Top
+        ) {
+            inimigos(
+                modifier = Modifier
+                    .size(60.dp)
+            )
+            inimigos(
+                modifier = Modifier
+                    .size(60.dp)
+            )
+            inimigos(
+                modifier = Modifier
+                    .size(60.dp)
+            )
+            inimigos(
+                modifier = Modifier
+                    .size(60.dp)
+            )
+            inimigos(
+                modifier = Modifier
+                    .size(60.dp)
+            )
+        }
+        Text(
+            text = "GAME OVER",
+            modifier = Modifier,
+            color = Color.White,
+            fontSize = 40.sp
+        )
+    }*/
+
+}
+
+@Composable
+fun jogador(modifier: Modifier = Modifier) {
+    Image(
+        modifier = modifier,
+        painter = painterResource(R.drawable.jogador),
+        contentDescription = "Android enemy",
+        )
 }
 
 @Composable
@@ -98,4 +208,14 @@ fun AndroidImg(
         contentDescription = "Android enemy"
     )
 
+}
+
+@Composable
+fun inimigos(modifier: Modifier = Modifier) {
+    Image(
+        modifier = modifier,
+        painter = painterResource(R.drawable.inimigo2),
+        contentDescription = "Android enemy",
+
+        )
 }
